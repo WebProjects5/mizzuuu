@@ -42,7 +42,7 @@ body{
 .text1, .text2{
     border-radius: 3%;
     padding: 40px;
-    width: 300px;
+    width: 100%;
     margin: 20px auto 20px;
     color: black;
     text-align: left;
