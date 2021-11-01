@@ -1,7 +1,13 @@
 let d = new Date();  
+let clicked = 0;
     function setTimer() {
         d = new Date();  
-        let year =  d.getMonth()>9 ? d.getFullYear()+1 :  d.getFullYear();
+        let year = 0;
+        if(d.getMonth()>9) {
+            if(d.getMonth()==10 && d.getDate()<=16) year = d.getFullYear();
+            else year = d.getFullYear()+1;
+        }
+        else year = d.getFullYear();
         let d2 = new Date(year,10,16,0,0);
         var milliseconds = d2-d;
         var day, hour, minute, seconds;
@@ -16,11 +22,13 @@ let d = new Date();
     }
 if(d.getMonth()==10 && d.getDate()==16){
     document.getElementById("header1").style.display="block";
+    document.getElementById("footer1").style.display="block";
     document.getElementById("header2").style.display="none";
     
 }
 else{
     document.getElementById("header1").style.display="none";
+    document.getElementById("footer1").style.display="none";
     document.getElementById("header2").style.display="block";
     setInterval(setTimer, 1000);
 }
@@ -42,6 +50,27 @@ function showTime() {
   
     document.getElementById("clock")
             .innerHTML = currentTime;
+}
+
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+function secretMsg(){
+    clicked +=1;
+    if(clicked>=5){
+        modal.style.display = "block";
+        clicked = 0;
+    }
+
 }
 
 

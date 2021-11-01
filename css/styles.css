@@ -8,7 +8,7 @@ body{
     margin: 0;
     padding: 0;
 }
-#header1{
+#header1,#footer1{
     font-family: 'Pacifico', cursive;
     font-size: 64px;
     font-style:calc(12);
@@ -22,7 +22,7 @@ body{
     width: 96%;
     text-align: center;
 }
-#header2 h3{
+#header2 h3,#footer h3{
     border-radius: 3%;
     margin: auto;
     width: fit-content;
@@ -93,12 +93,7 @@ h2 strong{
     font-size: 64px;
     font-weight: 700;
 }
-h1{
-    font-size: 28px;
-    font-family: 'Palanquin', sans-serif;
-    color: white;
-    text-decoration: underline;
-}
+
 
 .temp{
     width: 100%;
@@ -117,19 +112,81 @@ h1{
 .div3,.div4{
     box-shadow: 1px 1px 10px 2px #90E0EF;
     width: 270px;
-    height: 550px;
+    height: 600px;
     display: inline-block;
     margin: 10px ;
     border-radius: 3%;
     padding: 10px;
 }
+
 .div3 video,.div4 video,.div3 img,.div4 img{
     width: 250px;
     height: 436px;
     border-radius: 3%;
     padding: 5px;
 }
+h1{
+    font-size: 28px;
+    font-family: 'Palanquin', sans-serif;
+    color: white;
+    text-decoration: underline;
+}
+p{
+    font-weight: 600;
+}
+footer p{
+    text-align: right;
+    margin: 100px 40px 20px;
+    color: white;
 
+}
+a{
+    cursor: default;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    text-align: center;
+    color: white;
+    background-color: #070b34;
+    background-image: url(../images/texture1.png);
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 10px 2px #90E0EF;
+    width: 80%; 
+  }
+  .modal-content p{
+      padding: 20px;
+      text-indent: 2cm;
+      text-shadow: 1px 1px 3px #90E0EF;
+  }
+  
+  .close {
+    color:  white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #90E0EF;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
 @media (min-width: 720px) {
     .div1{
@@ -159,6 +216,9 @@ h1{
       .div{
           width: 650px;
           margin: auto;
+      }
+      .modal-content{
+          width: 70%;
       }
 
 }
@@ -198,6 +258,9 @@ h1{
     .div{
        width: 980px;
        margin: auto;
+    }
+    .modal-content {
+        width: 50%;
     }
 }
 
