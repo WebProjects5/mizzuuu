@@ -90,7 +90,7 @@ h2 strong{
     width: 270px;
     height: 600px;
     display: block;
-    margin: 15px auto;
+    margin: 20px auto;
     border-radius: 3%;
     padding: 10px;
 }
@@ -196,9 +196,9 @@ a{
           width: 650px;
           margin: auto;
       }
-      .div3{
+      .div3,.div4{
         display: inline-block;
-        margin: 15px 10px;   
+        margin: 20px 10px;   
     }
       .modal-content{
           width: 70%;
@@ -247,9 +247,9 @@ a{
         position: relative;
         top: -140px;
     }
-    .div3{
+    .div3,.div4{
         display: inline-block;
-        margin: 15px 10px;   
+        margin: 20px 10px;   
     }
     .div{
        width: 1000px;
