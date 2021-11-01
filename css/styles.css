@@ -1,7 +1,6 @@
 
 body{
     font-family: "Montserrat";
-    padding: 0px 40px 20px 40px;
     background-color: #070b34;
     background-image: url(../images/texture1.png);
     background-repeat: repeat;
@@ -34,15 +33,15 @@ body{
 #clock{
     display: inline;
 }
-.div1{
+.div1, .div2{
     width: 100%;
     text-align: center;
     
 }
 .text1, .text2{
     border-radius: 3%;
-    padding: 40px;
-    width: 100%;
+    padding: 25px;
+    width: 80%;
     margin: 20px auto 20px;
     color: black;
     text-align: left;
@@ -52,28 +51,15 @@ body{
     background-color: rgba(72, 202, 228, 0.6); 
 }
 
-.img1{
+.img1, .img2{
     margin: 50px auto 20px;
     opacity: 0.8;
-    width: 220px;
+    width: 50%;
     box-shadow: 1px 1px 100px 2px #90E0EF;
     border-radius: 50%;
 }
 
-.div2{
-    width: 100%;
-    text-align: center;
 
-}
-
-.img2{
-    margin: 50px auto 20px;
-    opacity: 0.8;
-    width: 220px;
-    box-shadow: 1px 1px 100px 2px #90E0EF;
-    border-radius: 50%;
-
-}
 
 .text2{
     background-color: rgba(144, 224, 239, 0.6);  
@@ -81,13 +67,11 @@ body{
 h2{
     font-size: 20px;
     font-family: 'Palanquin', sans-serif;
-    line-height: 40px;
 }
 h2 strong{
-    font-size: 48px;
+    font-size: 36px;
     font-weight: 700;
 }
-
 
 .temp{
     width: 100%;
@@ -105,8 +89,8 @@ h2 strong{
  }
 .div3,.div4{
     box-shadow: 1px 1px 10px 2px #90E0EF;
-    width: 270px;
-    height: 600px;
+    width: 220px;
+    height: 500px;
     display: inline-block;
     margin: 15px 10px 10px 15px ;
     border-radius: 3%;
@@ -114,8 +98,8 @@ h2 strong{
 }
 
 .div3 video,.div4 video,.div3 img,.div4 img{
-    width: 250px;
-    height: 436px;
+    width: 200px;
+    height: 349px;
     border-radius: 3%;
     padding: 5px;
 }
@@ -129,8 +113,8 @@ p{
     font-weight: 600;
 }
 footer p{
-    text-align: right;
-    margin: 100px 40px 20px;
+    text-align: center;
+    margin: 100px auto 20px;
     color: white;
 
 }
@@ -188,6 +172,9 @@ a{
       text-align: center;
         
     }
+    .img1, .img2{
+        width: 250px;
+    }
     .img1{
         margin: 60px 40px 60px 40px;
     }
@@ -205,7 +192,7 @@ a{
       }
       .text2{
         width: 700px;
-          margin: auto;
+        margin: auto;
           
       }
       .div{
@@ -227,6 +214,9 @@ a{
 
 }
 @media (min-width: 1100px) {
+    .img1, .img2{
+        width: 250px;
+    }
     .div1{
         width:fit-content;
         margin: auto;
@@ -260,7 +250,7 @@ a{
         margin: 20px;   
     }
     .div{
-       width: 980px;
+       width: 1000px;
        margin: auto;
     }
     .modal-content {
