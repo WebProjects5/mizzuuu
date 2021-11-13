@@ -1,5 +1,5 @@
 
-var bday = false, notNotified1=true,notNotified2=true;
+var bday = false;
 let clicked = 0;
 var d = new Date();
   function setTimer() {
@@ -41,13 +41,6 @@ function showTime() {
       document.getElementById("footer1").style.display="none";
       document.getElementById("header2").style.display="block";  
   }
-  // and here 
-  if ( d1.getMonth() === 10 && d1.getDate() === 13 && d1.getHours() <= 21 ) {
-    notifyUser(1);
-  }
-  if (d1.getMonth() === 10 && d1.getDate() === 13 && d1.getHours() === 22) {
-    notifyUser(2);
-  }
 
   let d = d1-d2;
   let secs= Math.floor(d/1000);
@@ -67,11 +60,6 @@ setInterval(showTime, 1000);
 
 if(!bday){
 setInterval(setTimer,1000);
-}
-// change here
-if(d.getDate()!=13){ 
-  notNotified2 = true;
-  notNotified2 = true; 
 }
 
 var modal = document.getElementById("myModal");
@@ -95,21 +83,3 @@ function secretMsg(){
   }
 }
 
-
-function notifyUser(i) {
-  if(i===1 && notNotified1){
-    Push.create("Happy Birthday Mizzuuuu 🎉🎂!!!", {
-      body: "Happy birthday idiot. Have a nice day and enjoy a lot ok 😉",
-      icon: "../images/cake.png"
-    });
-    notNotified1 = false;
-  }
-  if (i==2 && notNotified2) {
-    push.create("Happy Birthday Mizzuuuu 🥳🎉", 
-    { 
-      body:"Last wish is also mine 😜. How was your day mizzuuu ? Hope u enjoyed a lot." ,
-      icon:"../images/logo.png"
-  } );
-    notNotified2 = false;
-  } 
-}
