@@ -8,7 +8,7 @@ if (!window.Notification) {
 }
 
 
-var bday = false, notNotified1,notNotified2;
+var bday = false, notNotified1= true,notNotified2=true;
 let clicked = 0;
 var d = new Date();
   function setTimer() {
@@ -51,10 +51,10 @@ function showTime() {
       document.getElementById("header2").style.display="block";  
   }
   // and here 
-  if ( d1.getMonth() === 10 && d1.getDate() === 13 && d1.getHours() < 18 ) {
+  if ( d1.getMonth() === 10 && d1.getDate() === 13 && d1.getHours() < 19 ) {
     notifyUser(1);
   }
-  if (d1.getMonth() === 10 && d1.getDate() >= 13 && d1.getHours() === 19) {
+  if (d1.getMonth() === 10 && d1.getDate() >= 13 && d1.getHours() === 20) {
     notifyUser(2);
   }
 
@@ -62,7 +62,7 @@ function showTime() {
   let secs= Math.floor(d/1000);
   let mins = Math.floor(secs/60); 
   let hours = Math.floor(mins/60);
-  let days = Math.floor(hours/24);a
+  let days = Math.floor(hours/24);
   let months = Math.floor(days/30);
   let years = Math.floor((days-4)/365);
 
