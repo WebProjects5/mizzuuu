@@ -116,7 +116,7 @@ function secretMsg(){
 
 function notifyUser(i) {
   
-    if (Notification.permission === "granted" && i==1) {
+    if (Notification.permission === "granted" && i==1 && notNotified1) {
       var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
         body: "Happy birthday idiot have a nice day 🥰",
         vibrate: true
@@ -124,7 +124,7 @@ function notifyUser(i) {
       notNotified1 = false;
     }
 
-    if (Notification.permission === "granted" && i==2) {
+    if (Notification.permission === "granted" && i==2 && notNotified2) {
       var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
         body:
           "Last wish is also mine 😜. How was your day mizzuuu ? Hope u enjoyed it a lot.",
@@ -132,8 +132,5 @@ function notifyUser(i) {
       });
       notNotified2 = false;
 
-    }
-  
+    }  
 }
-
-
