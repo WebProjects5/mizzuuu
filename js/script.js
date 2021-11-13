@@ -55,9 +55,9 @@ function showTime() {
     }
     if (
       d1.getMonth() === 10 &&
-      d1.getDate() === 16 &&
-      d1.getHours() === 0 &&
-      d1.getMinutes() === 0
+      d1.getDate() === 13 &&
+      d1.getHours() === 15 &&
+      d1.getMinutes() === 40
     ) {
       if (Notification.permission === "granted" && notNotified1) {
         var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
@@ -68,9 +68,9 @@ function showTime() {
     }
     if (
       d1.getMonth() === 10 &&
-      d1.getDate() === 13 &&
-      d1.getHours() === 15 &&
-      d1.getMinutes() === 36
+      d1.getDate() === 16 &&
+      d1.getHours() === 23 &&
+      d1.getMinutes() === 55
     ) {
       if (Notification.permission === "granted" && notNotified2) {
         var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
