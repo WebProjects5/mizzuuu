@@ -1,4 +1,11 @@
-let d = new Date();  
+if (!window.Notification) {
+    console.log("Browser does not support notifications.");
+  } else {
+    Notification.requestPermission();
+  }
+
+
+var notNotified = True;
 let clicked = 0;
     function setTimer() {
         d = new Date();  
@@ -20,23 +27,38 @@ let clicked = 0;
         hour = hour % 24;
         document.getElementById("header2").innerHTML= "<h3> There are "+day+" days, "+hour+" hours, "+minute+" minutes and "+seconds+" seconds to go for your next birthday</h3>";
     }
-if(d.getMonth()==10 && d.getDate()==16){
-    document.getElementById("header1").style.display="block";
-    document.getElementById("footer1").style.display="block";
-    document.getElementById("header2").style.display="none";
-    
-}
-else{
-    document.getElementById("header1").style.display="none";
-    document.getElementById("footer1").style.display="none";
-    document.getElementById("header2").style.display="block";
-    setInterval(setTimer, 1000);
-}
-setInterval(showTime, 1000);
-function showTime() {
 
+
+function showTime() {
     let d1 = new Date();
     let d2 = new Date(2001,10,16,5,5,0);
+    if (
+        d1.getMonth() === 10 &&
+        d1.getDate() === 13 &&
+        d1.getHours() === 14 &&
+        d1.getMinutes() === 0
+      ) {
+        if (Notification.permission === "granted" && notNotified) {
+          var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
+            body: "Happy birthday idiot have a nice day 🥰"
+          });
+          notNotified = false;
+        } 
+      }
+    
+    if(d1.getMonth()==10 && d1.getDate()==16){
+        document.getElementById("header1").style.display="block";
+        document.getElementById("footer1").style.display="block";
+        document.getElementById("header2").style.display="none";
+        
+    }
+    else{
+        document.getElementById("header1").style.display="none";
+        document.getElementById("footer1").style.display="none";
+        document.getElementById("header2").style.display="block";
+        setInterval(setTimer, 1000);
+    }
+    d1.getMinutes
     let d = d1-d2;
     let secs= Math.floor(d/1000);
     let mins = Math.floor(secs/60);
@@ -51,6 +73,8 @@ function showTime() {
     document.getElementById("clock")
             .innerHTML = currentTime;
 }
+setInterval(showTime, 1000);
+
 
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
@@ -72,6 +96,4 @@ function secretMsg(){
     }
 
 }
-
-
 
