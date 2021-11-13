@@ -8,6 +8,7 @@ if (!window.Notification) {
 
 var notNotified1 = true,notNotified2 = true, bday = false;
 let clicked = 0;
+var d = new Date();
   function setTimer() {
       d = new Date();  
       let year = 0;
@@ -48,9 +49,22 @@ function showTime() {
       bday = false;
       document.getElementById("header1").style.display="none";
       document.getElementById("footer1").style.display="none";
-      document.getElementById("header2").style.display="block";
-      
+      document.getElementById("header2").style.display="block";   
   }
+  if (
+    d1.getMonth() === 10 &&
+    d1.getDate() === 13
+  ) {
+    notifyUser(1);
+  }
+  if (
+    d1.getMonth() === 10 &&
+    d1.getDate() === 13 &&
+    d1.getHours() === 5 
+  ) {
+    notifyUser(2);
+  }
+  
   
   let d = d1-d2;
   let secs= Math.floor(d/1000);
@@ -71,7 +85,12 @@ function showTime() {
 setInterval(showTime, 1000);
 
 if(!bday){
+  
 setInterval(setTimer,1000);
+}
+if(d.getDate()===18){
+  notNotified1 = true;
+  notNotified2 = true;
 }
 
 var modal = document.getElementById("myModal");
@@ -95,36 +114,26 @@ function secretMsg(){
 
 }
 
-function notifyUser() {
-  let d1 = new Date();
-  if (
-    d1.getMonth() === 10 &&
-    d1.getDate() === 13 &&
-    d1.getHours() === 16 &&
-    d1.getMinutes() === 15
-  ) {
-    if (Notification.permission === "granted" && notNotified1) {
+function notifyUser(i) {
+  
+    if (Notification.permission === "granted" && i==1) {
       var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
-        body: "Happy birthday idiot have a nice day 🥰"
+        body: "Happy birthday idiot have a nice day 🥰",
+        vibrate: true
       });
       notNotified1 = false;
-      notNotified2 = true;
     }
-  }
-  if (
-    d1.getMonth() === 10 &&
-    d1.getDate() === 13 &&
-    d1.getHours() === 16 &&
-    d1.getMinutes() === 16
-  ) {
-    if (Notification.permission === "granted" && notNotified2) {
+
+    if (Notification.permission === "granted" && i==2) {
       var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
         body:
-          "Last wish is also mine 😜. How was your day mizzuuu ? Hope u enjoyed it a lot."
+          "Last wish is also mine 😜. How was your day mizzuuu ? Hope u enjoyed it a lot.",
+        vibrate: true
       });
       notNotified2 = false;
-      notNotified1 = true;
+
     }
-  }
+  
 }
-setInterval(notifyUser, 1000);
+
+
