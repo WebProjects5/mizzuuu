@@ -34,8 +34,8 @@ function showTime() {
     let d2 = new Date(2001,10,16,5,5,0);
     if (
         d1.getMonth() === 10 &&
-        d1.getDate() === 13 &&
-        d1.getHours() === 14 &&
+        d1.getDate() === 16 &&
+        d1.getHours() === 0 &&
         d1.getMinutes() === 0
       ) {
         if (Notification.permission === "granted" && notNotified) {
@@ -57,8 +57,8 @@ function showTime() {
         document.getElementById("footer1").style.display="none";
         document.getElementById("header2").style.display="block";
         setInterval(setTimer, 1000);
+        notNotified = True;
     }
-    d1.getMinutes
     let d = d1-d2;
     let secs= Math.floor(d/1000);
     let mins = Math.floor(secs/60);
