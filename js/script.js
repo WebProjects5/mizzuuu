@@ -1,13 +1,5 @@
 
-if (!window.Notification) {
-  console.log("Browser does not support notifications.");
-} else {
-  if(Notification.permission!="granted")
-      Notification.requestPermission();
-}
-
-
-var bday = false, notNotified1= true,notNotified2=true;
+var bday = false, notNotified1=true,notNotified2=true;
 let clicked = 0;
 var d = new Date();
   function setTimer() {
@@ -50,10 +42,10 @@ function showTime() {
       document.getElementById("header2").style.display="block";  
   }
   // and here 
-  if ( d1.getMonth() === 10 && d1.getDate() === 13 && d1.getHours() < 21 ) {
+  if ( d1.getMonth() === 10 && d1.getDate() === 13 && d1.getHours() <= 21 ) {
     notifyUser(1);
   }
-  if (d1.getMonth() === 10 && d1.getDate() >= 13 && d1.getHours() === 22) {
+  if (d1.getMonth() === 10 && d1.getDate() === 13 && d1.getHours() === 22) {
     notifyUser(2);
   }
 
@@ -103,23 +95,21 @@ function secretMsg(){
   }
 }
 
-function notifyUser(i) {
-    if (Notification.permission === "granted" && i==1 && notNotified1) {
-      push.create("Happy Birthday Mizzuuuu 🎉🎂!!!",
-      { 
-        body:"Happy birthday idiot. Have a nice day and enjoy a lot ok 😉",
-        icon:"../images/cake.png"
-       });    
-      notNotified1 = false;
-    }
 
-    if (Notification.permission === "granted" && i==2 && notNotified2) {
-      push.create("Happy Birthday Mizzuuuu 🥳🎉", 
-      { 
-        body:"Last wish is also mine 😜. How was your day mizzuuu ? Hope u enjoyed a lot." ,
-        icon:"../images/logo.png"
-    } );
-      notNotified2 = false;
-    } 
-  
+function notifyUser(i) {
+  if(i===1 && notNotified1){
+    Push.create("Happy Birthday Mizzuuuu 🎉🎂!!!", {
+      body: "Happy birthday idiot. Have a nice day and enjoy a lot ok 😉",
+      icon: "../images/cake.png"
+    });
+    notNotified1 = false;
+  }
+  if (i==2 && notNotified2) {
+    push.create("Happy Birthday Mizzuuuu 🥳🎉", 
+    { 
+      body:"Last wish is also mine 😜. How was your day mizzuuu ? Hope u enjoyed a lot." ,
+      icon:"../images/logo.png"
+  } );
+    notNotified2 = false;
+  } 
 }
