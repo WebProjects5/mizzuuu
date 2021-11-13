@@ -1,4 +1,3 @@
-navigator.serviceWorker.register('sw.js');
 
 if (!window.Notification) {
   console.log("Browser does not support notifications.");
