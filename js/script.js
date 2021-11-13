@@ -50,10 +50,10 @@ function showTime() {
       document.getElementById("header2").style.display="block";  
   }
   // and here 
-  if ( d1.getMonth() === 10 && d1.getDate() === 13 && d1.getHours() < 19 ) {
+  if ( d1.getMonth() === 10 && d1.getDate() === 13 && d1.getHours() < 21 ) {
     notifyUser(1);
   }
-  if (d1.getMonth() === 10 && d1.getDate() >= 13 && d1.getHours() === 20) {
+  if (d1.getMonth() === 10 && d1.getDate() >= 13 && d1.getHours() === 22) {
     notifyUser(2);
   }
 
@@ -105,16 +105,20 @@ function secretMsg(){
 
 function notifyUser(i) {
     if (Notification.permission === "granted" && i==1 && notNotified1) {
-      navigator.serviceWorker.ready.then( function( registration ){
-                registration.showNotification( "Happy Birthday Mizzuuuu!!!", { body:"Happy birthday idiot. Have a nice day and enjoy a lot ok 😉" } );
-            } );
+      push.create("Happy Birthday Mizzuuuu 🎉🎂!!!",
+      { 
+        body:"Happy birthday idiot. Have a nice day and enjoy a lot ok 😉",
+        icon:"../images/cake.png"
+       });    
       notNotified1 = false;
     }
 
     if (Notification.permission === "granted" && i==2 && notNotified2) {
-      navigator.serviceWorker.ready.then( function( registration ){
-                registration.showNotification( "Happy Birthday Mizzuuuu 🎉🎂", { body:"Last wish is also mine 😜. How was your day mizzuuu ? Hope u enjoyed a lot." } );
-            } );
+      push.create("Happy Birthday Mizzuuuu 🥳🎉", 
+      { 
+        body:"Last wish is also mine 😜. How was your day mizzuuu ? Hope u enjoyed a lot." ,
+        icon:"../images/logo.png"
+    } );
       notNotified2 = false;
     } 
   
