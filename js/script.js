@@ -5,8 +5,10 @@ if (!window.Notification) {
       Notification.requestPermission();
 }
 
+localStorage.setItem("notNotified1",true);
+localStorage.setItem("notNotified2",true);
 
-var notNotified1 = true,notNotified2 = true, bday = false;
+var bday = false;
 let clicked = 0;
 var d = new Date();
   function setTimer() {
@@ -53,14 +55,14 @@ function showTime() {
   }
   if (
     d1.getMonth() === 10 &&
-    d1.getDate() === 13
+    d1.getDate() === 13 && 
+    d1.getHours() < 18
   ) {
     notifyUser(1);
   }
   if (
     d1.getMonth() === 10 &&
-    d1.getDate() === 13 &&
-    d1.getHours() === 5 
+    ((d1.getDate() === 13 && d1.getHours() === 18) || d1.getDate()==14)
   ) {
     notifyUser(2);
   }
@@ -68,7 +70,7 @@ function showTime() {
   
   let d = d1-d2;
   let secs= Math.floor(d/1000);
-  let mins = Math.floor(secs/60);
+  let mins = Math.floor(secs/60); 
   let hours = Math.floor(mins/60);
   let days = Math.floor(hours/24);a
   let months = Math.floor(days/30);
@@ -89,8 +91,9 @@ if(!bday){
 setInterval(setTimer,1000);
 }
 if(d.getDate()===18){
-  notNotified1 = true;
-  notNotified2 = true;
+  localStorage.setItem("notNotified1",true);
+  localStorage.setItem("notNotified2",true);
+
 }
 
 var modal = document.getElementById("myModal");
@@ -115,13 +118,15 @@ function secretMsg(){
 }
 
 function notifyUser(i) {
-  
+  let notNotified1 = localStorage.getItem("notNotified1");
+  let notNotified2 = localStorage.getItem("notNotified2");
     if (Notification.permission === "granted" && i==1 && notNotified1) {
       var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
         body: "Happy birthday idiot have a nice day 🥰",
         vibrate: true
       });
-      notNotified1 = false;
+      localStorage.setItem("notNotified1",false);
+
     }
 
     if (Notification.permission === "granted" && i==2 && notNotified2) {
@@ -130,7 +135,9 @@ function notifyUser(i) {
           "Last wish is also mine 😜. How was your day mizzuuu ? Hope u enjoyed it a lot.",
         vibrate: true
       });
-      notNotified2 = false;
+      localStorage.setItem("notNotified2",false);
 
-    }  
+
+    }
+  
 }
