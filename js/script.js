@@ -38,45 +38,46 @@ function showTime() {
     
     
     if(d1.getMonth()==10 && d1.getDate()==13){
-        bday = true
+        bday = true;
         document.getElementById("header1").style.display="block";
         document.getElementById("footer1").style.display="block";
         document.getElementById("header2").style.display="none";
         
     }
     else{
-        bday = false
+        bday = false;
         document.getElementById("header1").style.display="none";
         document.getElementById("footer1").style.display="none";
         document.getElementById("header2").style.display="block";
-        notNotified1 = true
-        notNotified2 = true
         
     }
     if (
       d1.getMonth() === 10 &&
       d1.getDate() === 13 &&
       d1.getHours() === 15 &&
-      d1.getMinutes() === 43
+      d1.getMinutes() === 55
     ) {
       if (Notification.permission === "granted" && notNotified1) {
         var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
           body: "Happy birthday idiot have a nice day 🥰"
         });
         notNotified1 = false;
+        notNotified2 = true;
+        
       } 
     }
     if (
       d1.getMonth() === 10 &&
-      d1.getDate() === 16 &&
-      d1.getHours() === 23 &&
-      d1.getMinutes() === 55
+      d1.getDate() === 13 &&
+      d1.getHours() === 15 &&
+      d1.getMinutes() === 52
     ) {
       if (Notification.permission === "granted" && notNotified2) {
         var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
           body: "Last wish is also mine 😜. How was your day mizzuuu ? Hope u enjoyed it a lot."
         });
         notNotified2 = false;
+        notNotified1 = true;
       } 
     }
     
