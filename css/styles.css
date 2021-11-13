@@ -21,6 +21,7 @@ body{
     margin: 100px auto 0px;
     width: 96%;
     text-align: center;
+    display: none;
 }
 #header2 h3,#footer h3{
     border-radius: 3%;
