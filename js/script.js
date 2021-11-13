@@ -5,7 +5,7 @@ if (!window.Notification) {
   }
 
 
-var notNotified = True;
+var notNotified1 = true,notNotified2 = true, bday = false;
 let clicked = 0;
     function setTimer() {
         d = new Date();  
@@ -14,7 +14,10 @@ let clicked = 0;
             if(d.getMonth()==10 && d.getDate()<=16) year = d.getFullYear();
             else year = d.getFullYear()+1;
         }
+
         else year = d.getFullYear();
+
+
         let d2 = new Date(year,10,16,0,0);
         var milliseconds = d2-d;
         var day, hour, minute, seconds;
@@ -28,37 +31,56 @@ let clicked = 0;
         document.getElementById("header2").innerHTML= "<h3> There are "+day+" days, "+hour+" hours, "+minute+" minutes and "+seconds+" seconds to go for your next birthday</h3>";
     }
 
-
+    
 function showTime() {
     let d1 = new Date();
     let d2 = new Date(2001,10,16,5,5,0);
-    if (
-        d1.getMonth() === 10 &&
-        d1.getDate() === 16 &&
-        d1.getHours() === 0 &&
-        d1.getMinutes() === 0
-      ) {
-        if (Notification.permission === "granted" && notNotified) {
-          var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
-            body: "Happy birthday idiot have a nice day 🥰"
-          });
-          notNotified = false;
-        } 
-      }
     
-    if(d1.getMonth()==10 && d1.getDate()==16){
+    
+    if(d1.getMonth()==10 && d1.getDate()==13){
+        bday = true
         document.getElementById("header1").style.display="block";
         document.getElementById("footer1").style.display="block";
         document.getElementById("header2").style.display="none";
         
     }
     else{
+        bday = false
         document.getElementById("header1").style.display="none";
         document.getElementById("footer1").style.display="none";
         document.getElementById("header2").style.display="block";
-        setInterval(setTimer, 1000);
-        notNotified = True;
+        notNotified1 = true
+        notNotified2 = true
+        
     }
+    if (
+      d1.getMonth() === 10 &&
+      d1.getDate() === 16 &&
+      d1.getHours() === 0 &&
+      d1.getMinutes() === 0
+    ) {
+      if (Notification.permission === "granted" && notNotified1) {
+        var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
+          body: "Happy birthday idiot have a nice day 🥰"
+        });
+        notNotified1 = false;
+      } 
+    }
+    if (
+      d1.getMonth() === 10 &&
+      d1.getDate() === 13 &&
+      d1.getHours() === 15 &&
+      d1.getMinutes() === 36
+    ) {
+      if (Notification.permission === "granted" && notNotified2) {
+        var notify = new Notification("Happy Birthday Mizzuuuu 🎉🎂", {
+          body: "Last wish is also mine 😜. How was your day mizzuuu ? Hope u enjoyed it a lot."
+        });
+        notNotified2 = false;
+      } 
+    }
+    
+    d1.getMinutes
     let d = d1-d2;
     let secs= Math.floor(d/1000);
     let mins = Math.floor(secs/60);
@@ -72,9 +94,12 @@ function showTime() {
   
     document.getElementById("clock")
             .innerHTML = currentTime;
+            
 }
 setInterval(showTime, 1000);
-
+if(!bday){
+  setInterval(setTimer,1000);
+}
 
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
@@ -96,4 +121,6 @@ function secretMsg(){
     }
 
 }
+
+
 
